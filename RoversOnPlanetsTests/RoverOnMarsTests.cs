@@ -28,6 +28,43 @@ namespace RoversOnPlanetsTests
             Assert.AreEqual(mars.Map.Grid.GetLength(1), 10);
         }
 
-        
+        [Test]
+        public void RoverDefaultDirection_ShouldBeEast()
+        {
+            Rover rover = new Rover();
+
+            Assert.AreEqual(rover.Direction, "EAST");
+        }
+
+
+        [TestCase("NORTH")]
+
+        [Test]
+        public void ChangingDirectionToNorth_ShouldChangeRoverDirectionToNorth(string newDirection)
+        {
+            Rover rover = new Rover();
+
+            rover.Direction = newDirection;
+
+            Assert.AreEqual(rover.Direction, newDirection);
+        }
+
+        [TestCase("NF")]
+
+        [Test]
+        public void SendingToRoverCommandsThatChangeDirectionToNorthAndMoveRoverForwardOneTime_ShouldSetRoverDirectionToNorthAndMoveRoverToThePositionGridEqualTo0x1(string commands)
+        {
+            Rover rover = new Rover();
+            Planet mars = new Planet(10, 10);
+
+            rover.ExecuteCommands(commands);
+
+            Assert.Multiple(() =>
+            {
+                Assert.AreEqual(rover.PositionX, 0);
+                Assert.AreEqual(rover.PositionY, 1);
+            });
+
+        }
     }
 }
