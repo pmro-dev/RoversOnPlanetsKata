@@ -32,7 +32,8 @@ namespace RoversOnPlanetsTests
         [Test]
         public void RoverDefaultDirection_ShouldBeEast()
         {
-            Rover rover = new Rover();
+            Map map = new Map();
+            Rover rover = new Rover(map);
 
             Assert.AreEqual(rover.Direction, "EAST");
         }
@@ -43,7 +44,8 @@ namespace RoversOnPlanetsTests
         [Test]
         public void ChangingDirectionToNorth_ShouldChangeRoverDirectionToNorth(string newDirection)
         {
-            Rover rover = new Rover();
+            Map map = new Map();
+            Rover rover = new Rover(map);
 
             rover.Direction = newDirection;
 
@@ -55,8 +57,8 @@ namespace RoversOnPlanetsTests
         [Test]
         public void SendingToRoverCommandsThatChangeDirectionToNorthAndMoveRoverForwardOneTime_ShouldSetRoverDirectionToNorthAndMoveRoverToThePositionGridEqualTo0x1(string commands)
         {
-            Rover rover = new Rover();
             Planet mars = new Planet(10, 10);
+            Rover rover = new Rover(mars.Map);
 
             rover.ExecuteCommands(commands);
 
@@ -71,10 +73,10 @@ namespace RoversOnPlanetsTests
         [TestCase("NFFFFFFFFFFF")]
 
         [Test]
-        public void SendingToRoverCommandsWithMoreMovesForwardThanMapGridSize_ShouldThrowArgumentOutOfRangeException(string commands)
+        public void SendingToRoverCommandsWhereSomeOfThemCouldTellToMoveOutOfMapGrid_ShouldThrowArgumentOutOfRangeException(string commands)
         {
-            Rover rover = new Rover();
             Planet mars = new Planet(10, 10);
+            Rover rover = new Rover(mars.Map);
 
             Assert.Throws<ArgumentOutOfRangeException>(() => rover.ExecuteCommands(commands));
         }

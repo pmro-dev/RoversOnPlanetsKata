@@ -23,6 +23,13 @@ namespace RoversOnPlanetsKata
             this.Grid = new int[horizontalSize, verticalSize];
         }
 
+        public Map()
+        {
+            this.HorizontalSize = 10;
+            this.VerticalSize = 10;
+            this.Grid = new int[horizontalSize, verticalSize];
+        }
+
 
     }
 }
