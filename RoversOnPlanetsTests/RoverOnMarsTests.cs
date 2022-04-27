@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using RoversOnPlanetsKata;
+using System;
 
 namespace RoversOnPlanetsTests
 {
@@ -64,7 +65,18 @@ namespace RoversOnPlanetsTests
                 Assert.AreEqual(rover.PositionX, 0);
                 Assert.AreEqual(rover.PositionY, 1);
             });
+        }
 
+
+        [TestCase("NFFFFFFFFFFF")]
+
+        [Test]
+        public void SendingToRoverCommandsWithMoreMovesForwardThanMapGridSize_ShouldThrowArgumentOutOfRangeException(string commands)
+        {
+            Rover rover = new Rover();
+            Planet mars = new Planet(10, 10);
+
+            Assert.Throws<ArgumentOutOfRangeException>(() => rover.ExecuteCommands(commands));
         }
     }
 }
