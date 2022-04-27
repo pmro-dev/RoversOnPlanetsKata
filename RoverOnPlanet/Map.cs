@@ -11,14 +11,18 @@ namespace RoversOnPlanetsKata
         int horizontalSize;
         int verticalSize;
         int[,] grid;
-        Enum directions;
-        Enum moves;
+
+        public int HorizontalSize { get => horizontalSize; set => horizontalSize = value; }
+        public int VerticalSize { get => verticalSize; set => verticalSize = value; }
+        public int[,] Grid { get => grid; set => grid = value; }
 
         public Map(int horizontalSize, int verticalSize)
         {
-            this.horizontalSize = horizontalSize;
-            this.verticalSize = verticalSize;
-            this.grid = new int[horizontalSize, verticalSize];
+            this.HorizontalSize = horizontalSize;
+            this.VerticalSize = verticalSize;
+            this.Grid = new int[horizontalSize, verticalSize];
         }
+
+
     }
 }
