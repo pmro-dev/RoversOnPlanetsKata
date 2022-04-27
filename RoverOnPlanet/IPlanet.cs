@@ -8,5 +8,6 @@ namespace RoversOnPlanetsKata
 {
     public interface IPlanet
     {
+
     }
 }

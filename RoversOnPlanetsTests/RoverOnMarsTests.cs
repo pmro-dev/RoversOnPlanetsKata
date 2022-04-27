@@ -11,7 +11,7 @@ namespace RoversOnPlanetsTests
         }
 
         [Test]
-        public void Test1()
+        public void CreateMars_ShouldReturnMap()
         {
             Assert.Pass();
         }

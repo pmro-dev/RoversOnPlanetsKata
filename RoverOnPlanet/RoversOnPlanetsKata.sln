@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoversOnPlanetsKata", "RoversOnPlanetsKata.csproj", "{7EBCFFC4-F0F9-4407-AC7E-407B8DD70A27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoversOnPlanetsKata", "RoversOnPlanetsKata.csproj", "{7EBCFFC4-F0F9-4407-AC7E-407B8DD70A27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoversOnPlanetsTests", "RoversOnPlanetsTests\RoversOnPlanetsTests.csproj", "{23888721-6A8A-4C98-9C8F-C006EA8C599A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoversOnPlanetsTests", "..\RoversOnPlanetsTests\RoversOnPlanetsTests.csproj", "{CF30F109-6793-486E-A8A7-ACB9EA1A308E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{7EBCFFC4-F0F9-4407-AC7E-407B8DD70A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EBCFFC4-F0F9-4407-AC7E-407B8DD70A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EBCFFC4-F0F9-4407-AC7E-407B8DD70A27}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23888721-6A8A-4C98-9C8F-C006EA8C599A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23888721-6A8A-4C98-9C8F-C006EA8C599A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23888721-6A8A-4C98-9C8F-C006EA8C599A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23888721-6A8A-4C98-9C8F-C006EA8C599A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF30F109-6793-486E-A8A7-ACB9EA1A308E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF30F109-6793-486E-A8A7-ACB9EA1A308E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF30F109-6793-486E-A8A7-ACB9EA1A308E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF30F109-6793-486E-A8A7-ACB9EA1A308E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
