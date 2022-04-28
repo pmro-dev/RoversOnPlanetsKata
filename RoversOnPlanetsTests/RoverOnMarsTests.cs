@@ -73,7 +73,7 @@ namespace RoversOnPlanetsTests
         [TestCase("NFFFFFFFFFFF")]
 
         [Test]
-        public void SendingToRoverCommandsWhereSomeOfThemCouldTellToMoveOutOfMapGrid_ShouldThrowArgumentOutOfRangeException(string commands)
+        public void SendingToRoverCommandsWhereSomeOfThemCouldOrderToMoveRoverOutOfMapGrid_ShouldThrowArgumentOutOfRangeExceptionAtPointWhenMoveCannotBeDone(string commands)
         {
             Planet mars = new Planet(10, 10);
             Rover rover = new Rover(mars.Map);
