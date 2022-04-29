@@ -90,5 +90,14 @@ namespace RoversOnPlanetsTests
 
             Assert.AreEqual("S_3x4", rover.ReturnLastPosition());
         }
+
+
+        [TestCase("G")]
+
+        [Test]
+        public void TryingExecutionANotRecognitionalCharCommand_ShouldThrowArgumentException(string commands)
+        {
+            Assert.Throws<ArgumentException>(() => rover.ExecuteCommands(commands));
+        }
     }
 }
