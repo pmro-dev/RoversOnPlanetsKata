@@ -126,7 +126,6 @@ namespace RoversOnPlanetsKata
                     {
                         break;
                     }
-                    break;
 
                 case 'S':
                     if (moveType == 'F')
@@ -143,7 +142,6 @@ namespace RoversOnPlanetsKata
                     {
                         break;
                     }
-                    break;
 
                 case 'E':
                     if (moveType == 'F')
@@ -160,7 +158,6 @@ namespace RoversOnPlanetsKata
                     {
                         break;
                     }
-                    break;
 
                 case 'W':
                     if (moveType == 'F')
