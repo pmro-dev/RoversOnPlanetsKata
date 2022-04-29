@@ -18,7 +18,7 @@ namespace RoversOnPlanetsKata
         {
             verticalSize = 10;
             horizontalSize = 10;
-            Map = new Map(horizontalSize, verticalSize);
+            Map = new Map(this.horizontalSize, this.verticalSize);
         }
 
         public Planet(int verticalSize, int horizontalSize)

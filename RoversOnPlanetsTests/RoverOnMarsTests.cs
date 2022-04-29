@@ -32,8 +32,8 @@ namespace RoversOnPlanetsTests
         [Test]
         public void RoverDefaultDirection_ShouldBeEast()
         {
-            Map map = new Map();
-            Rover rover = new Rover(map);
+            Planet planet = new Planet();
+            Rover rover = new Rover(planet);
 
             Assert.AreEqual(rover.Direction, "EAST");
         }
@@ -44,8 +44,8 @@ namespace RoversOnPlanetsTests
         [Test]
         public void ChangingDirectionToNorth_ShouldChangeRoverDirectionToNorth(string newDirection)
         {
-            Map map = new Map();
-            Rover rover = new Rover(map);
+            Planet mars = new Planet();
+            Rover rover = new Rover(mars);
 
             rover.Direction = newDirection;
 
@@ -58,7 +58,7 @@ namespace RoversOnPlanetsTests
         public void SendingToRoverCommandsThatChangeDirectionToNorthAndMoveRoverForwardOneTime_ShouldSetRoverDirectionToNorthAndMoveRoverToThePositionGridEqualTo0x1(string commands)
         {
             Planet mars = new Planet(10, 10);
-            Rover rover = new Rover(mars.Map);
+            Rover rover = new Rover(mars);
 
             rover.ExecuteCommands(commands);
 
@@ -76,7 +76,7 @@ namespace RoversOnPlanetsTests
         public void SendingToRoverCommandsWhereSomeOfThemCouldOrderToMoveRoverOutOfMapGrid_ShouldThrowArgumentOutOfRangeExceptionAtPointWhenMoveCannotBeDone(string commands)
         {
             Planet mars = new Planet(10, 10);
-            Rover rover = new Rover(mars.Map);
+            Rover rover = new Rover(mars);
 
             Assert.Throws<ArgumentOutOfRangeException>(() => rover.ExecuteCommands(commands));
         }
@@ -88,7 +88,7 @@ namespace RoversOnPlanetsTests
         public void AfterCommandsExecutionRover_ShouldSendBackInformationAboutHisLastDirectionAndPositionOnTheMapGrid(string commands)
         {
             Planet mars = new Planet(10, 10);
-            Rover rover = new Rover(mars.Map);
+            Rover rover = new Rover(mars);
             rover.ExecuteCommands(commands);
 
             Assert.AreEqual("S_3x4", rover.ReturnLastPosition());

@@ -19,15 +19,9 @@ namespace RoversOnPlanetsKata
         private Planet planet;
         private Map map;
 
-        public Rover(Map map)
-        {
-            this.direction = "EAST";
-            this.positionX = 0;
-            this.positionY = 0;
-            this.map = map;
-        }
         public Rover(Planet planet)
         {
+            this.direction = "EAST";
             this.positionX = 0;
             this.positionY = 0;
             this.planet = planet;
