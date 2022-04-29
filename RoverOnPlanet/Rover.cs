@@ -179,6 +179,9 @@ namespace RoversOnPlanetsKata
                     {
                         break;
                     }
+                default:
+                    Console.WriteLine("Sorry, but something went wrong. In commands line is not recognitional char command.");
+                    throw new ArgumentException("System does not recognize a command char in commands line.", nameof(direction));
             }
         }
     }
