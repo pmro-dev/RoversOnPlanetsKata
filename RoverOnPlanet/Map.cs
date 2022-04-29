@@ -18,16 +18,16 @@ namespace RoversOnPlanetsKata
 
         public Map(int horizontalSize, int verticalSize)
         {
-            this.HorizontalSize = horizontalSize;
-            this.VerticalSize = verticalSize;
-            this.Grid = new int[horizontalSize, verticalSize];
+            this.horizontalSize = horizontalSize;
+            this.verticalSize = verticalSize;
+            this.grid = new int[horizontalSize, verticalSize];
         }
 
         public Map()
         {
-            this.HorizontalSize = 10;
-            this.VerticalSize = 10;
-            this.Grid = new int[horizontalSize, verticalSize];
+            this.horizontalSize = 10;
+            this.verticalSize = 10;
+            this.grid = new int[horizontalSize, verticalSize];
         }
 
 

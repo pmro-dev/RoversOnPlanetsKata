@@ -9,21 +9,23 @@ namespace RoversOnPlanetsKata
     public class Planet
     {
         public Map Map { get ; set; }
-        public int VerticalSize { get; set; }
-        public int HorizontalSize { get; set; }
+        public int VerticalSize { get => verticalSize; set => verticalSize = value; }
+        public int HorizontalSize { get => horizontalSize; set => horizontalSize = value; }
+        int horizontalSize;
+        int verticalSize;
 
         public Planet()
         {
-            VerticalSize = 10;
-            HorizontalSize = 10;
-            Map = new Map(HorizontalSize, VerticalSize);
+            verticalSize = 10;
+            horizontalSize = 10;
+            Map = new Map(horizontalSize, verticalSize);
         }
 
         public Planet(int verticalSize, int horizontalSize)
         {
-            VerticalSize = verticalSize;
-            HorizontalSize = horizontalSize;
-            Map = new Map(HorizontalSize, VerticalSize);
+            this.verticalSize = verticalSize;
+            this.horizontalSize = horizontalSize;
+            Map = new Map(this.horizontalSize, this.verticalSize);
         }
     }
 }
