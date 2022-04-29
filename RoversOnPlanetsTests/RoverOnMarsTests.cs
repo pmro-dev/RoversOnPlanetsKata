@@ -39,14 +39,14 @@ namespace RoversOnPlanetsTests
             Planet planet = new Planet();
             Rover rover = new Rover(planet);
 
-            Assert.AreEqual(rover.Direction, "EAST");
+            Assert.AreEqual(rover.Direction, 'E');
         }
 
 
-        [TestCase("NORTH")]
+        [TestCase('N')]
 
         [Test]
-        public void ChangingDirectionToNorth_ShouldChangeRoverDirectionToNorth(string newDirection)
+        public void ChangingDirectionToNorth_ShouldChangeRoverDirectionToNorth(char newDirection)
         {
             Planet mars = new Planet();
             Rover rover = new Rover(mars);

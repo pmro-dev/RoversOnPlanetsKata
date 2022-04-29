@@ -8,8 +8,8 @@ namespace RoversOnPlanetsKata
 {
     public class Rover
     {
-        private string direction;
-        public string Direction { get => this.direction; set => this.direction = value; }
+        private char direction;
+        public char Direction { get => this.direction; set => this.direction = value; }
 
         private int positionX;
         private int positionY;
@@ -21,7 +21,7 @@ namespace RoversOnPlanetsKata
 
         public Rover(Planet planet)
         {
-            this.direction = "EAST";
+            this.direction = 'E';
             this.positionX = 0;
             this.positionY = 0;
             this.planet = planet;
@@ -30,7 +30,7 @@ namespace RoversOnPlanetsKata
 
         public string ReturnLastPosition()
         {
-            string stringPosition = $"{direction.Substring(0, 1)}_{positionX}x{positionY}";
+            string stringPosition = $"{direction}_{positionX}x{positionY}";
             return stringPosition;
         }
 
@@ -43,28 +43,16 @@ namespace RoversOnPlanetsKata
             {
                 switch (command)
                 {
-                    case 'N':
-                        direction = "NORTH";
-                        break;
-
-                    case 'S':
-                        direction = "SOUTH";
-                        break;
-
-                    case 'E':
-                        direction = "EAST";
-                        break;
-
-                    case 'W':
-                        direction = "WEST";
-                        break;
-
                     case 'F':
                         Move('F');
                         break;
 
                     case 'B':
                         Move('B');
+                        break;
+
+                    default: 
+                        direction = command;
                         break;
                 }
             }
@@ -75,7 +63,7 @@ namespace RoversOnPlanetsKata
         {
             switch (direction)
             {
-                case "NORTH":
+                case 'N':
                     if (moveType == 'F')
                     {
                         if (positionY + 1 <= map.Grid.GetLength(1))
@@ -108,7 +96,7 @@ namespace RoversOnPlanetsKata
                     }
                     break;
 
-                case "SOUTH":
+                case 'S':
                     if (moveType == 'F')
                     {
                         if (positionY - 1 >= 0)
@@ -141,7 +129,7 @@ namespace RoversOnPlanetsKata
                     }
                     break;
 
-                case "EAST":
+                case 'E':
                     if (moveType == 'F')
                     {
                         if (positionX + 1 <= map.Grid.GetLength(0))
@@ -174,7 +162,7 @@ namespace RoversOnPlanetsKata
                     }
                     break;
 
-                case "WEST":
+                case 'W':
                     if (moveType == 'F')
                     {
                         if (positionX - 1 >= 0)
