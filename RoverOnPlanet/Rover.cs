@@ -34,6 +34,7 @@ namespace RoversOnPlanetsKata
             return stringPosition;
         }
 
+        char[] directionsCommands = {'N','S','E','W' };
 
         public void ExecuteCommands(string commands)
         {
@@ -41,19 +42,22 @@ namespace RoversOnPlanetsKata
 
             foreach (char command in charArray)
             {
-                switch (command)
+                if (command == 'F')
                 {
-                    case 'F':
-                        Move('F');
-                        break;
-
-                    case 'B':
-                        Move('B');
-                        break;
-
-                    default: 
-                        direction = command;
-                        break;
+                    Move('F');
+                }
+                else if (command == 'B')
+                {
+                    Move('B');
+                }
+                else if (directionsCommands.Contains(command))
+                {
+                    direction = command;
+                }
+                else
+                {
+                    Console.WriteLine("Sorry, but something went wrong. In commands line is not recognitional char command.");
+                    throw new ArgumentException("System does not recognize a command char in commands line.", nameof(direction));
                 }
             }
         }
@@ -179,9 +183,6 @@ namespace RoversOnPlanetsKata
                     {
                         break;
                     }
-                default:
-                    Console.WriteLine("Sorry, but something went wrong. In commands line is not recognitional char command.");
-                    throw new ArgumentException("System does not recognize a command char in commands line.", nameof(direction));
             }
         }
     }
