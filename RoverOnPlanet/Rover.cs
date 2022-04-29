@@ -58,6 +58,7 @@ namespace RoversOnPlanetsKata
             }
         }
 
+
        private void MoveOnXToPlusSide()
         {
             if (positionX + 1 <= map.Grid.GetLength(0))
@@ -66,8 +67,7 @@ namespace RoversOnPlanetsKata
             }
             else
             {
-                Console.WriteLine("Sorry but we cannot move to this position, please change command");
-                throw new ArgumentOutOfRangeException();
+                CanNotMakeMove(null);
             }
         }
         private void MoveOnXToMinusSide()
@@ -78,8 +78,7 @@ namespace RoversOnPlanetsKata
             }
             else
             {
-                Console.WriteLine("Sorry but we cannot move to this position, please change command");
-                throw new ArgumentOutOfRangeException();
+                CanNotMakeMove(null);
             }
         }
         private void MoveOnYToPlusSide()
@@ -90,8 +89,7 @@ namespace RoversOnPlanetsKata
             }
             else
             {
-                Console.WriteLine("Sorry but we cannot move to this position, please change command");
-                throw new ArgumentOutOfRangeException();
+                CanNotMakeMove(null);
             }
         }
         private void MoveOnYToMinusSide()
@@ -102,10 +100,17 @@ namespace RoversOnPlanetsKata
             }
             else
             {
-                Console.WriteLine("Sorry but we cannot move to this position, please change command");
-                throw new ArgumentOutOfRangeException();
+                CanNotMakeMove(null);
             }
         }
+
+
+        private void CanNotMakeMove(string? additionalInfo)
+        {
+            Console.WriteLine($"Sorry but we cannot move to this position, please change command. {additionalInfo}");
+            throw new ArgumentOutOfRangeException();
+        }
+
 
         public void Move(char moveType)
         {
