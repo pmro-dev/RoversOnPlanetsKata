@@ -58,6 +58,54 @@ namespace RoversOnPlanetsKata
             }
         }
 
+       private void MoveOnXToPlusSide()
+        {
+            if (positionX + 1 <= map.Grid.GetLength(0))
+            {
+                positionX++;
+            }
+            else
+            {
+                Console.WriteLine("Sorry but we cannot move to this position, please change command");
+                throw new ArgumentOutOfRangeException();
+            }
+        }
+        private void MoveOnXToMinusSide()
+        {
+            if (positionX - 1 >= 0)
+            {
+                positionX--;
+            }
+            else
+            {
+                Console.WriteLine("Sorry but we cannot move to this position, please change command");
+                throw new ArgumentOutOfRangeException();
+            }
+        }
+        private void MoveOnYToPlusSide()
+        {
+            if (positionY + 1 <= map.Grid.GetLength(1))
+            {
+                positionY++;
+            }
+            else
+            {
+                Console.WriteLine("Sorry but we cannot move to this position, please change command");
+                throw new ArgumentOutOfRangeException();
+            }
+        }
+        private void MoveOnYToMinusSide()
+        {
+            if (positionY - 1 >= 0)
+            {
+                positionY--;
+            }
+            else
+            {
+                Console.WriteLine("Sorry but we cannot move to this position, please change command");
+                throw new ArgumentOutOfRangeException();
+            }
+        }
 
         public void Move(char moveType)
         {
@@ -66,29 +114,13 @@ namespace RoversOnPlanetsKata
                 case 'N':
                     if (moveType == 'F')
                     {
-                        if (positionY + 1 <= map.Grid.GetLength(1))
-                        {
-                            positionY++;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry but we cannot move to this position, please change command");
-                            throw new ArgumentOutOfRangeException();
-                            break;
-                        }
+                        MoveOnYToPlusSide();
+                        break;
                     }
                     else if (moveType == 'B')
                     {
-                        if (positionY - 1 >= 0)
-                        {
-                            positionY--;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry but we cannot move to this position, please change command");
-                            throw new ArgumentOutOfRangeException();
-                            break;
-                        }
+                        MoveOnYToMinusSide();
+                        break;
                     }
                     else
                     {
@@ -99,29 +131,13 @@ namespace RoversOnPlanetsKata
                 case 'S':
                     if (moveType == 'F')
                     {
-                        if (positionY - 1 >= 0)
-                        {
-                            positionY--;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry but we cannot move to this position, please change command");
-                            throw new ArgumentOutOfRangeException();
-                            break;
-                        }
+                        MoveOnYToMinusSide();
+                        break;
                     }
                     else if (moveType == 'B')
                     {
-                        if (positionY + 1 <= map.Grid.GetLength(1))
-                        {
-                            positionY++;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry but we cannot move to this position, please change command");
-                            throw new ArgumentOutOfRangeException();
-                            break;
-                        }
+                        MoveOnYToPlusSide();
+                        break;
                     }
                     else
                     {
@@ -132,29 +148,13 @@ namespace RoversOnPlanetsKata
                 case 'E':
                     if (moveType == 'F')
                     {
-                        if (positionX + 1 <= map.Grid.GetLength(0))
-                        {
-                            positionX++;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry but we cannot move to this position, please change command");
-                            throw new ArgumentOutOfRangeException();
-                            break;
-                        }
+                        MoveOnXToPlusSide();
+                        break;
                     }
                     else if (moveType == 'B')
                     {
-                        if (positionX - 1 >= 0)
-                        {
-                            positionX--;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry but we cannot move to this position, please change command");
-                            throw new ArgumentOutOfRangeException();
-                            break;
-                        }
+                        MoveOnXToMinusSide();
+                        break;
                     }
                     else
                     {
@@ -165,35 +165,18 @@ namespace RoversOnPlanetsKata
                 case 'W':
                     if (moveType == 'F')
                     {
-                        if (positionX - 1 >= 0)
-                        {
-                            positionX--;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry but we cannot move to this position, please change command");
-                            throw new ArgumentOutOfRangeException();
-                            break;
-                        }
+                        MoveOnXToMinusSide();
+                        break;
                     }
                     else if (moveType == 'B')
                     {
-                        if (positionX + 1 <= map.Grid.GetLength(0))
-                        {
-                            positionX++;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry but we cannot move to this position, please change command");
-                            throw new ArgumentOutOfRangeException();
-                            break;
-                        }
+                        MoveOnXToPlusSide();
+                        break;
                     }
                     else
                     {
                         break;
                     }
-                    break;
             }
         }
     }
