@@ -80,5 +80,18 @@ namespace RoversOnPlanetsTests
 
             Assert.Throws<ArgumentOutOfRangeException>(() => rover.ExecuteCommands(commands));
         }
+
+
+        [TestCase("NFFEFFFSBB")]
+
+        [Test]
+        public void AfterCommandsExecutionRover_ShouldSendBackInformationAboutHisLastDirectionAndPositionOnTheMapGrid(string commands)
+        {
+            Planet mars = new Planet(10, 10);
+            Rover rover = new Rover(mars.Map);
+            rover.ExecuteCommands(commands);
+
+            Assert.AreEqual("S_3x4", rover.ReturnLastPosition());
+        }
     }
 }

@@ -21,6 +21,13 @@ namespace RoversOnPlanetsKata
             this.map = map;
         }
 
+        public string ReturnLastPosition()
+        {
+            string stringPosition = $"{Direction.Substring(0, 1)}_{PositionX}x{PositionY}";
+            return stringPosition;
+        }
+
+
         public void ExecuteCommands(string commands)
         {
             char[] charArray = commands.ToCharArray();
@@ -196,3 +203,4 @@ namespace RoversOnPlanetsKata
         }
     }
 }
+
