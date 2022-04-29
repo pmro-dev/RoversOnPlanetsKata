@@ -6,9 +6,14 @@ namespace RoversOnPlanetsTests
 {
     public class Tests
     {
+        Planet mars;
+        Rover rover;
+
         [SetUp]
         public void Setup()
         {
+            mars = new Planet(10, 10);
+            rover = new Rover(mars);
         }
 
         [Test]
@@ -23,7 +28,6 @@ namespace RoversOnPlanetsTests
         [Test]
         public void NewMarsPlanetWithVerticalAndHorizontalValuesEachEqualTo10_ShouldHasGridOfSizeEqualTo10x10()
         {
-            Planet mars = new Planet(10, 10);
 
             Assert.AreEqual(mars.Map.Grid.GetLength(0), 10);
             Assert.AreEqual(mars.Map.Grid.GetLength(1), 10);
@@ -57,8 +61,6 @@ namespace RoversOnPlanetsTests
         [Test]
         public void SendingToRoverCommandsThatChangeDirectionToNorthAndMoveRoverForwardOneTime_ShouldSetRoverDirectionToNorthAndMoveRoverToThePositionGridEqualTo0x1(string commands)
         {
-            Planet mars = new Planet(10, 10);
-            Rover rover = new Rover(mars);
 
             rover.ExecuteCommands(commands);
 
@@ -75,9 +77,6 @@ namespace RoversOnPlanetsTests
         [Test]
         public void SendingToRoverCommandsWhereSomeOfThemCouldOrderToMoveRoverOutOfMapGrid_ShouldThrowArgumentOutOfRangeExceptionAtPointWhenMoveCannotBeDone(string commands)
         {
-            Planet mars = new Planet(10, 10);
-            Rover rover = new Rover(mars);
-
             Assert.Throws<ArgumentOutOfRangeException>(() => rover.ExecuteCommands(commands));
         }
 
@@ -87,8 +86,6 @@ namespace RoversOnPlanetsTests
         [Test]
         public void AfterCommandsExecutionRover_ShouldSendBackInformationAboutHisLastDirectionAndPositionOnTheMapGrid(string commands)
         {
-            Planet mars = new Planet(10, 10);
-            Rover rover = new Rover(mars);
             rover.ExecuteCommands(commands);
 
             Assert.AreEqual("S_3x4", rover.ReturnLastPosition());
