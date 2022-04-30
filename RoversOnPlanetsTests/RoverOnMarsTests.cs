@@ -36,13 +36,16 @@ namespace RoversOnPlanetsTests
             Assert.AreEqual(mars.Map.Grid.GetLength(1), expectedMapGridVerticalSize);
         }
 
-        [Test]
-        public void RoverDefaultDirection_ShouldBeEast()
+
+        [TestCase('E')]
+        [Test] 
+        // BEFORE MODULE 4 RoverDefaultDirection_ShouldBeEast
+        public void CreatedDefaultRover_ShouldHasDefaultDirection(char expectedDirection)
         {
             Planet planet = new Planet();
             Rover rover = new Rover(planet);
 
-            Assert.AreEqual(rover.Direction, 'E');
+            Assert.AreEqual(rover.Direction, expectedDirection);
         }
 
 
