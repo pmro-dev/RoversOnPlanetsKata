@@ -100,9 +100,9 @@ namespace RoversOnPlanetsTests
 
 
         [TestCase("G")]
-
-        [Test]
-        public void TryingExecutionANotRecognitionalCharCommand_ShouldThrowArgumentException(string commands)
+        [Test] 
+        // BEFORE MODULE 4 TryingExecutionANotRecognitionalCharCommand_ShouldThrowArgumentException
+        public void AttemptionToExecuteCommandByRoverWithUndefinedCommand_ShouldThrowArgumentException(string commands)
         {
             Assert.Throws<ArgumentException>(() => rover.ExecuteCommands(commands));
         }
