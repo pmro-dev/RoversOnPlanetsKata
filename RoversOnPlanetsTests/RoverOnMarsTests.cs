@@ -62,26 +62,27 @@ namespace RoversOnPlanetsTests
             Assert.AreEqual(rover.Direction, newDirection);
         }
 
-        [TestCase("NF")]
 
-        [Test]
-        public void SendingToRoverCommandsThatChangeDirectionToNorthAndMoveRoverForwardOneTime_ShouldSetRoverDirectionToNorthAndMoveRoverToThePositionGridEqualTo0x1(string commands)
+        [TestCase("NF", 0 , 1)]
+        [Test] 
+        // BEFORE MODULE 4 SendingToRoverCommandsThatChangeDirectionToNorthAndMoveRoverForwardOneTime_ShouldSetRoverDirectionToNorthAndMoveRoverToThePositionGridEqualTo0x1
+        public void AttemptionToExecuteBasicCommandsThatChangeRoverDirectionAndRequireToMakeMove_ShouldExecuteCommandsWithoutErrorAndMoveRoverToPositionAsIsExpectedBasedOnProvidingCommands(string commands, int expectedPositionX, int expectedPositionY)
         {
 
             rover.ExecuteCommands(commands);
 
             Assert.Multiple(() =>
             {
-                Assert.AreEqual(rover.PositionX, 0);
-                Assert.AreEqual(rover.PositionY, 1);
+                Assert.AreEqual(rover.PositionX, expectedPositionX);
+                Assert.AreEqual(rover.PositionY, expectedPositionY);
             });
         }
 
 
         [TestCase("NFFFFFFFFFFF")]
-
-        [Test]
-        public void SendingToRoverCommandsWhereSomeOfThemCouldOrderToMoveRoverOutOfMapGrid_ShouldThrowArgumentOutOfRangeExceptionAtPointWhenMoveCannotBeDone(string commands)
+        [Test] 
+        // BEFORE MODULE 4 SendingToRoverCommandsWhereSomeOfThemCouldOrderToMoveRoverOutOfMapGrid_ShouldThrowArgumentOutOfRangeExceptionAtPointWhenMoveCannotBeDone
+        public void AttemptionToExecuteCommandsWhichIncludeOrderToMoveRoverOutOfMapGrid_ShouldMoveRoverToTheAchievablePositionAndThrowArgumentOutOfRangeExceptionAtPointWhenNextMoveCannotBeDone(string commands)
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => rover.ExecuteCommands(commands));
         }
