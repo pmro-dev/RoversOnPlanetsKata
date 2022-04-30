@@ -88,14 +88,14 @@ namespace RoversOnPlanetsTests
         }
 
 
-        [TestCase("NFFEFFFSBB")]
-
-        [Test]
-        public void AfterCommandsExecutionRover_ShouldSendBackInformationAboutHisLastDirectionAndPositionOnTheMapGrid(string commands)
+        [TestCase("NFFEFFFSBB", "S_3x4")]
+        [Test] 
+        // BEFORE MODULE 4 AfterCommandsExecutionRover_ShouldSendBackInformationAboutHisLastDirectionAndPositionOnTheMapGrid
+        public void AfterCommandsExecutionByRover_WeShouldBeAbleToCheckTheLastPositionOfTheRover_WhichShouldBeExpectablePositionBasedOnProvidedCommandsButFormatedInSpecificPositionMessage(string commands, string expectedLastPositionMessage)
         {
             rover.ExecuteCommands(commands);
 
-            Assert.AreEqual("S_3x4", rover.ReturnLastPosition());
+            Assert.AreEqual(expectedLastPositionMessage, rover.ReturnLastPosition());
         }
 
 
