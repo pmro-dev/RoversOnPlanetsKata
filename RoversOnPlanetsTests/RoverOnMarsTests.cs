@@ -50,9 +50,9 @@ namespace RoversOnPlanetsTests
 
 
         [TestCase('N')]
-
-        [Test]
-        public void ChangingDirectionToNorth_ShouldChangeRoverDirectionToNorth(char newDirection)
+        [Test] 
+        //BEFORE MODULE 4 ChangingDirectionToNorth_ShouldChangeRoverDirectionToNorth
+        public void CreatingDefaultRoverAndPlanetThenAttemptionToChangeRoverDirection_ShouldChangeRoverDirectionToNewOne(char newDirection)
         {
             Planet mars = new Planet();
             Rover rover = new Rover(mars);
