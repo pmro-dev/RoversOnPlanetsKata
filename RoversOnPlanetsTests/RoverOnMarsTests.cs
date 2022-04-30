@@ -17,16 +17,16 @@ namespace RoversOnPlanetsTests
         }
 
         [Test]
-        public void NewMarsPlanet_ShouldHasVariablesWithDefaultValues()
+        public void NewPlanet_ShouldHasVariablesWithDefaultValues()
         {
-            Planet mars = new Planet();
+            Planet planet = new Planet();
 
-            Assert.AreEqual(mars.HorizontalSize, 10);
-            Assert.AreEqual(mars.VerticalSize, 10);
+            Assert.AreEqual(planet.HorizontalSize, 10);
+            Assert.AreEqual(planet.VerticalSize, 10);
         }
 
-        [TestCase(10, 10, 10, 10)]
 
+        [TestCase(10, 10, 10, 10)]
         [Test] 
         //BEFORE MODULE 4 NewMarsPlanetWithVerticalAndHorizontalValuesEachEqualTo10_ShouldHasGridOfSizeEqualTo10x10
         public void CreatingNewPlanetWithVerticalAndHorizontalSpecificValues_ShouldCreateMapGridForThisPlanetInSizeEqualToProvidedVerticalAndHorizontalValuesForPlanet(int horizontalSize, int verticalSize, int expectedMapGridHorizontalSize, int expectedMapGridVerticalSize)
@@ -52,7 +52,7 @@ namespace RoversOnPlanetsTests
         [TestCase('N')]
         [Test] 
         //BEFORE MODULE 4 ChangingDirectionToNorth_ShouldChangeRoverDirectionToNorth
-        public void CreatingDefaultRoverAndPlanetThenAttemptionToChangeRoverDirection_ShouldChangeRoverDirectionToNewOne(char newDirection)
+        public void CreatingRoverAndPlanetWithDefaultValuesForEachThenAttemptToChangeRoverDirection_ShouldChangeRoverDirectionToNewOneExpected(char newDirection)
         {
             Planet mars = new Planet();
             Rover rover = new Rover(mars);
@@ -66,9 +66,8 @@ namespace RoversOnPlanetsTests
         [TestCase("NF", 0 , 1)]
         [Test] 
         // BEFORE MODULE 4 SendingToRoverCommandsThatChangeDirectionToNorthAndMoveRoverForwardOneTime_ShouldSetRoverDirectionToNorthAndMoveRoverToThePositionGridEqualTo0x1
-        public void AttemptionToExecuteBasicCommandsThatChangeRoverDirectionAndRequireToMakeMove_ShouldExecuteCommandsWithoutErrorAndMoveRoverToPositionAsIsExpectedBasedOnProvidingCommands(string commands, int expectedPositionX, int expectedPositionY)
+        public void AttemptionToExecuteCommandsLineThatChangeRoverDirectionAndOrderToMakeMove_ShouldExecuteCommandsWithoutErrorsThatMeansChangeRoverDirectionAndMoveItToPositionAsIsExpected(string commands, int expectedPositionX, int expectedPositionY)
         {
-
             rover.ExecuteCommands(commands);
 
             Assert.Multiple(() =>
@@ -82,7 +81,7 @@ namespace RoversOnPlanetsTests
         [TestCase("NFFFFFFFFFFF")]
         [Test] 
         // BEFORE MODULE 4 SendingToRoverCommandsWhereSomeOfThemCouldOrderToMoveRoverOutOfMapGrid_ShouldThrowArgumentOutOfRangeExceptionAtPointWhenMoveCannotBeDone
-        public void AttemptionToExecuteCommandsWhichIncludeOrderToMoveRoverOutOfMapGrid_ShouldMoveRoverToTheAchievablePositionAndThrowArgumentOutOfRangeExceptionAtPointWhenNextMoveCannotBeDone(string commands)
+        public void AttemptionToExecuteCommandsWhichIncludeOrderToMoveRoverOnPositionOutOfMapGrid_ShouldMoveRoverToTheAchievablePositionAndThrowArgumentOutOfRangeExceptionAtPointWhenNextMoveCannotBeDoneBecauseOfMapGridBorder(string commands)
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => rover.ExecuteCommands(commands));
         }
@@ -102,7 +101,7 @@ namespace RoversOnPlanetsTests
         [TestCase("G")]
         [Test] 
         // BEFORE MODULE 4 TryingExecutionANotRecognitionalCharCommand_ShouldThrowArgumentException
-        public void AttemptionToExecuteCommandByRoverWithUndefinedCommand_ShouldThrowArgumentException(string commands)
+        public void AttemptionToExecuteCommandsLineByRoverWithUndefinedCommand_ShouldThrowArgumentException(string commands)
         {
             Assert.Throws<ArgumentException>(() => rover.ExecuteCommands(commands));
         }
