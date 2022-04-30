@@ -25,12 +25,15 @@ namespace RoversOnPlanetsTests
             Assert.AreEqual(mars.VerticalSize, 10);
         }
 
-        [Test]
-        public void NewMarsPlanetWithVerticalAndHorizontalValuesEachEqualTo10_ShouldHasGridOfSizeEqualTo10x10()
-        {
+        [TestCase(10, 10, 10, 10)]
 
-            Assert.AreEqual(mars.Map.Grid.GetLength(0), 10);
-            Assert.AreEqual(mars.Map.Grid.GetLength(1), 10);
+        [Test] 
+        //BEFORE MODULE 4 NewMarsPlanetWithVerticalAndHorizontalValuesEachEqualTo10_ShouldHasGridOfSizeEqualTo10x10
+        public void CreatingNewPlanetWithVerticalAndHorizontalSpecificValues_ShouldCreateMapGridForThisPlanetInSizeEqualToProvidedVerticalAndHorizontalValuesForPlanet(int horizontalSize, int verticalSize, int expectedMapGridHorizontalSize, int expectedMapGridVerticalSize)
+        {
+            mars = new Planet(horizontalSize, verticalSize);
+            Assert.AreEqual(mars.Map.Grid.GetLength(0), expectedMapGridHorizontalSize);
+            Assert.AreEqual(mars.Map.Grid.GetLength(1), expectedMapGridVerticalSize);
         }
 
         [Test]
